@@ -1,0 +1,9 @@
+link Notebook
+
+https://www.kaggle.com/code/saurav9786/recommender-system-using-amazon-reviews#Attribute-Information:
+
+
+link dataset
+
+https://www.kaggle.com/datasets/saurav9786/amazon-product-reviews
+

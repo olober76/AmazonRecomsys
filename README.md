@@ -36,7 +36,15 @@ Permasalahan dan tujuan di atas , bisa di selesaikan dengan hipotesa sebagai ber
 
 ## Data Understanding
 
-Paragraf awal bagian ini menjelaskan informasi mengenai jumlah data, kondisi data, dan informasi mengenai data yang digunakan. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Dataset ini adalah versi terbaru dari dataset ulasan Amazon yang dirilis pada tahun 2014. Seperti pada versi sebelumnya, dataset ini mencakup ulasan beberapa atribut, dengan pembaharuan sebagai berikut.
+
+Lebih banyak ulasan:
+Jumlah total ulasan adalah 233,1 juta (142,8 juta pada tahun 2014).
+Ulasan yang lebih baru:
+Data saat ini mencakup ulasan dalam rentang waktu Mei 1996 - Oktober 2018.
+
+**REFERENSI DATASET**
+[Amazon Product Review](http://jmcauley.ucsd.edu/data/amazon/).
 
 Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:
 
