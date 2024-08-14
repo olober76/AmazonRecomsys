@@ -46,13 +46,17 @@ Data saat ini mencakup ulasan dalam rentang waktu Mei 1996 - Oktober 2018.
 **REFERENSI DATASET**
 [Amazon Product Review](http://jmcauley.ucsd.edu/data/amazon/).
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:
 
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
 
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+Variabel-variabel pada Amazon Product Review dataset adalah sebagai berikut:
+
+- **userId** : Every user identified with a unique id (First Column)
+
+- **productId** : Every product identified with a unique id(Second Column)
+
+- **Rating** : Rating of the corresponding product by the corresponding user(Third Column)
+
+- **timestamp** : Time of the rating ( Fourth Column)
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 
