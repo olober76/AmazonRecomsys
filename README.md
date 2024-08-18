@@ -189,7 +189,9 @@ untuk data preparasi, Teknik yang digunakan dalam data preparation yaitu reading
 
 ## Modeling
 
-merujuk pada artikel
+merujuk pada artikel yang mengatakan bahwa
+
+> Algoritma penyaringan kolaboratif berbasis K-nearest neighbor (KNN) untuk sistem rekomendasi, dengan mempertimbangkan kesamaan kognisi pengguna. Peningkatan ini bertujuan untuk meningkatkan akurasi dalam mengelompokkan pengguna dan menghasilkan rekomendasi yang lebih relevan bagi pengguna aktif.
 
 [Adaptive KNN-Based Extended Collaborative Filtering Recommendation Services](https://www.mdpi.com/2504-2289/7/2/106#:~:text=The%20KNN%2Dbased%20collaborative%20filtering%20algorithm%20is%20a%20type%20of,users%20to%20the%20target%20user.)
 
@@ -322,8 +324,7 @@ dari model yang sudah dibuat, dilakukan pembuat dataframe baru yang melalui bebe
 
 ![Screenshot 2024-08-18 115829](https://github.com/user-attachments/assets/6e473e02-ab21-4fc6-a0eb-0222295ab7ca)
 
-terlihat bahwa adanya sebuah rekomendasi dari  product yang serupa
-
+terlihat bahwa adanya sebuah rekomendasi dari product yang serupa
 
 ## Kesimpulan
 
