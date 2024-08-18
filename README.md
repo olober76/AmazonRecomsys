@@ -200,24 +200,36 @@ K-Nearest Neighbors (KNN) adalah algoritma yang bekerja dengan mencari data poin
 **Cara Kerja KNN dalam Collaborative Filtering:**
 
 1. **Definisi Tetangga Terdekat (K-Nearest Neighbors)**:
-   - Untuk merekomendasikan item kepada pengguna, KNN menghitung kemiripan antara item yang telah dinilai oleh pengguna dan semua item lain yang belum dinilai oleh pengguna. 
+
+   - Untuk merekomendasikan item kepada pengguna, KNN menghitung kemiripan antara item yang telah dinilai oleh pengguna dan semua item lain yang belum dinilai oleh pengguna.
    - Alternatifnya, jika model berbasis pengguna, KNN menghitung kemiripan antara pengguna target dengan semua pengguna lain untuk menemukan pengguna yang memiliki preferensi serupa.
 
 2. **Menghitung Kemiripan (Similarity Calculation)**:
-   - Kemiripan antara dua item atau dua pengguna sering dihitung menggunakan metrik seperti *Cosine Similarity* atau *Pearson Correlation*.
-   
+   - Kemiripan antara dua item atau dua pengguna sering dihitung menggunakan metrik seperti _Cosine Similarity_ atau _Pearson Correlation_.
 3. **Pemilihan Tetangga (Selecting Neighbors)**:
+
    - Setelah kemiripan dihitung, KNN memilih k tetangga terdekat yang memiliki nilai kemiripan tertinggi.
 
 4. **Prediksi Rating (Rating Prediction)**:
+
    - Untuk memprediksi rating yang akan diberikan pengguna pada suatu item, kita bisa menghitung rata-rata tertimbang dari rating yang diberikan oleh tetangga terdekat. dengan catatan
-    himpunan tetangga terdekat dari item, dan rating yang diprediksi untuk item.
+     himpunan tetangga terdekat dari item, dan rating yang diprediksi untuk item.
 
 5. **Memberikan Rekomendasi (Making Recommendations)**:
    - Setelah memprediksi rating untuk semua item yang belum dinilai oleh pengguna, kita dapat mengurutkan item-item tersebut berdasarkan rating prediksi dan merekomendasikan top-5 item dengan rating tertinggi kepada pengguna.
 
+Penggunaan parameter dijelaskan sebagai berikut
 
+Kode ini mengimplementasikan algoritma **K-Nearest Neighbors with Means (KNNWithMeans)** dari library `surprise` untuk membuat model rekomendasi. Berikut penjelasan mengenai parameter yang digunakan:
 
+1. **k=5**: Parameter ini menentukan jumlah tetangga terdekat (neighbors) yang akan dipertimbangkan oleh algoritma saat membuat prediksi. Dalam kasus ini, algoritma akan menggunakan 5 tetangga terdekat untuk menentukan rating prediksi.
+
+2. **sim_options={'name': 'pearson_baseline', 'user_based': False}**:
+
+   - **'name': 'pearson_baseline'**: Ini menentukan jenis metrik kesamaan (similarity metric) yang digunakan untuk mengukur seberapa mirip dua item satu sama lain. `pearson_baseline` adalah varian dari Pearson correlation yang memperhitungkan baseline rating dari pengguna dan item, sehingga bisa menghasilkan perhitungan kesamaan yang lebih akurat.
+   - **'user_based': False**: Parameter ini menentukan apakah kesamaan akan dihitung berdasarkan pengguna atau item. Jika `user_based` diset `False`, maka kesamaan dihitung antar item (item-based). Sebaliknya, jika `True`, kesamaan akan dihitung antar pengguna (user-based).
+
+3. **algo.fit(trainset)**: Metode ini digunakan untuk melatih model `algo` menggunakan dataset pelatihan (`trainset`). Model akan mempelajari pola dari data tersebut untuk digunakan dalam melakukan prediksi di kemudian hari.
 
 ## Evaluation
 
@@ -299,6 +311,14 @@ Analisis hasil cross-validation ini memberikan gambaran tentang performa model d
 - **Efisiensi**: Waktu pelatihan dan pengujian yang singkat dan konsisten menunjukkan bahwa model ini efisien dalam hal komputasi, yang penting untuk aplikasi yang membutuhkan respons cepat.
 
 Secara keseluruhan, model ini tampaknya stabil dan efisien, meskipun mungkin masih ada ruang untuk perbaikan dalam hal akurasi prediksi.
+
+### Uji coba
+
+dari model yang sudah dibuat, dilakukan pembuat dataframe baru yang melalui beberapa tahap
+
+- fill value 0 pada `userID` yang tidak mereivew `productID`, lalu di transpose matrix
+- Dekomposisi matrix agar mengurangi dimensi dari matriks besar menjadi matriks dengan dimensi lebih kecil, sambil mempertahankan informasi penting.
+- mengambil sampel `productID` agar di uji coba
 
 ## Kesimpulan
 
