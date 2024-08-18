@@ -205,21 +205,13 @@ K-Nearest Neighbors (KNN) adalah algoritma yang bekerja dengan mencari data poin
 
 2. **Menghitung Kemiripan (Similarity Calculation)**:
    - Kemiripan antara dua item atau dua pengguna sering dihitung menggunakan metrik seperti *Cosine Similarity* atau *Pearson Correlation*.
-   - Misalnya, untuk *Pearson Correlation* antara dua item \(i\) dan \(j\), rumusnya adalah:
-     \[
-     \text{sim}(i, j) = \frac{\sum_{u \in U} (r_{u,i} - \bar{r}_{i})(r_{u,j} - \bar{r}_{j})}{\sqrt{\sum_{u \in U} (r_{u,i} - \bar{r}_{i})^2 \sum_{u \in U} (r_{u,j} - \bar{r}_{j})^2}}
-     \]
-     Di sini, \(r_{u,i}\) adalah rating yang diberikan oleh pengguna \(u\) pada item \(i\), dan \(\bar{r}_{i}\) adalah rata-rata rating untuk item \(i\).
-
+   
 3. **Pemilihan Tetangga (Selecting Neighbors)**:
-   - Setelah kemiripan dihitung, KNN memilih \(k\) tetangga terdekat yang memiliki nilai kemiripan tertinggi.
+   - Setelah kemiripan dihitung, KNN memilih k tetangga terdekat yang memiliki nilai kemiripan tertinggi.
 
 4. **Prediksi Rating (Rating Prediction)**:
-   - Untuk memprediksi rating yang akan diberikan pengguna pada suatu item, kita bisa menghitung rata-rata tertimbang dari rating yang diberikan oleh tetangga terdekat. Rumusnya adalah:
-     \[
-     \hat{r}_{u,i} = \bar{r}_{i} + \frac{\sum_{j \in N_k(i)} \text{sim}(i,j) \cdot (r_{u,j} - \bar{r}_{j})}{\sum_{j \in N_k(i)} |\text{sim}(i,j)|}
-     \]
-     Di sini, \(N_k(i)\) adalah himpunan tetangga terdekat dari item \(i\), dan \(\hat{r}_{u,i}\) adalah rating yang diprediksi untuk item \(i\).
+   - Untuk memprediksi rating yang akan diberikan pengguna pada suatu item, kita bisa menghitung rata-rata tertimbang dari rating yang diberikan oleh tetangga terdekat. dengan catatan
+    himpunan tetangga terdekat dari item, dan rating yang diprediksi untuk item.
 
 5. **Memberikan Rekomendasi (Making Recommendations)**:
    - Setelah memprediksi rating untuk semua item yang belum dinilai oleh pengguna, kita dapat mengurutkan item-item tersebut berdasarkan rating prediksi dan merekomendasikan top-5 item dengan rating tertinggi kepada pengguna.
