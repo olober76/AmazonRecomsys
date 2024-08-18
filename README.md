@@ -195,12 +195,37 @@ merujuk pada artikel
 
 dengan referensi tersebut , dalam menggenerasi Top-N recommendations dilakukan dengan cara membuat model K-NN
 
-dengan kode sebagai berikut
+K-Nearest Neighbors (KNN) adalah algoritma yang bekerja dengan mencari data poin yang paling mirip atau "tetangga terdekat" dalam suatu ruang fitur. Dalam konteks **collaborative filtering** untuk rekomendasi, KNN dapat digunakan untuk memprediksi preferensi pengguna terhadap item berdasarkan preferensi pengguna lain atau item lain yang mirip.
 
-```python
-algo = KNNWithMeans(k=5, sim_options={'name': 'pearson_baseline', 'user_based': False})
-algo.fit(trainset)
-```
+**Cara Kerja KNN dalam Collaborative Filtering:**
+
+1. **Definisi Tetangga Terdekat (K-Nearest Neighbors)**:
+   - Untuk merekomendasikan item kepada pengguna, KNN menghitung kemiripan antara item yang telah dinilai oleh pengguna dan semua item lain yang belum dinilai oleh pengguna. 
+   - Alternatifnya, jika model berbasis pengguna, KNN menghitung kemiripan antara pengguna target dengan semua pengguna lain untuk menemukan pengguna yang memiliki preferensi serupa.
+
+2. **Menghitung Kemiripan (Similarity Calculation)**:
+   - Kemiripan antara dua item atau dua pengguna sering dihitung menggunakan metrik seperti *Cosine Similarity* atau *Pearson Correlation*.
+   - Misalnya, untuk *Pearson Correlation* antara dua item \(i\) dan \(j\), rumusnya adalah:
+     \[
+     \text{sim}(i, j) = \frac{\sum_{u \in U} (r_{u,i} - \bar{r}_{i})(r_{u,j} - \bar{r}_{j})}{\sqrt{\sum_{u \in U} (r_{u,i} - \bar{r}_{i})^2 \sum_{u \in U} (r_{u,j} - \bar{r}_{j})^2}}
+     \]
+     Di sini, \(r_{u,i}\) adalah rating yang diberikan oleh pengguna \(u\) pada item \(i\), dan \(\bar{r}_{i}\) adalah rata-rata rating untuk item \(i\).
+
+3. **Pemilihan Tetangga (Selecting Neighbors)**:
+   - Setelah kemiripan dihitung, KNN memilih \(k\) tetangga terdekat yang memiliki nilai kemiripan tertinggi.
+
+4. **Prediksi Rating (Rating Prediction)**:
+   - Untuk memprediksi rating yang akan diberikan pengguna pada suatu item, kita bisa menghitung rata-rata tertimbang dari rating yang diberikan oleh tetangga terdekat. Rumusnya adalah:
+     \[
+     \hat{r}_{u,i} = \bar{r}_{i} + \frac{\sum_{j \in N_k(i)} \text{sim}(i,j) \cdot (r_{u,j} - \bar{r}_{j})}{\sum_{j \in N_k(i)} |\text{sim}(i,j)|}
+     \]
+     Di sini, \(N_k(i)\) adalah himpunan tetangga terdekat dari item \(i\), dan \(\hat{r}_{u,i}\) adalah rating yang diprediksi untuk item \(i\).
+
+5. **Memberikan Rekomendasi (Making Recommendations)**:
+   - Setelah memprediksi rating untuk semua item yang belum dinilai oleh pengguna, kita dapat mengurutkan item-item tersebut berdasarkan rating prediksi dan merekomendasikan top-5 item dengan rating tertinggi kepada pengguna.
+
+
+
 
 ## Evaluation
 
