@@ -318,7 +318,12 @@ dari model yang sudah dibuat, dilakukan pembuat dataframe baru yang melalui bebe
 
 - fill value 0 pada `userID` yang tidak mereivew `productID`, lalu di transpose matrix
 - Dekomposisi matrix agar mengurangi dimensi dari matriks besar menjadi matriks dengan dimensi lebih kecil, sambil mempertahankan informasi penting.
-- mengambil sampel `productID` agar di uji coba
+- mengambil sampel `productID` agar di uji coba\
+
+![Screenshot 2024-08-18 115829](https://github.com/user-attachments/assets/6e473e02-ab21-4fc6-a0eb-0222295ab7ca)
+
+terlihat bahwa adanya sebuah rekomendasi dari  product yang serupa
+
 
 ## Kesimpulan
 
